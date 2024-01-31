@@ -25,6 +25,9 @@ class Router
         y utiliza el método match para verificar si alguna coincide con la $uri.
     */
     public function direct($uri) {
+        // Separar la URI de la cadena de consulta
+        $uri = explode('?', $uri)[0];
+        
         foreach ($this->routes as $route => $action) {
             list($match, $params) = $this->match($route, $uri);
             if ($match) {

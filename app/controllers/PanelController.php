@@ -1,5 +1,8 @@
 <?php
 namespace App\Controllers;
+
+use Config\Functions;
+
 // In /app/controllers/PanelController.php
 
 class PanelController {
@@ -13,10 +16,27 @@ class PanelController {
         $this->productModel = new \APP\Models\Product($apiClient);
     }
     public function showDashboard() {
-        $latestProducts = $this->productModel->getProducts(); // Method to fetch latest products
+        // Aquí no necesitas obtener los productos desde el modelo,
+        // ya que se cargarán a través de AJAX.
         require VIEWS_DIR . 'dashboard.php';
     }
+    public function getProductsJson() {
+        $latestProducts = $this->productModel->getProducts();
+        header('Content-Type: application/json');
+        echo json_encode($latestProducts);
+        exit;
+    }
     public function showForm() {
-        require VIEWS_DIR . 'panel.php';
+        require VIEWS_DIR . 'form.php';
+    }
+    public function addProduct() {
+        $data = json_decode(file_get_contents('php://input'), true);
+        
+        // Aquí, procesa $data y utiliza tu modelo o ApiClient para añadir el producto
+        $result = $this->productModel->addProduct($data);
+        Functions::debug($result);
+        header('Content-Type: application/json');
+        echo json_encode($result);
+        exit;
     }
 }

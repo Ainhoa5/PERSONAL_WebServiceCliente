@@ -12,5 +12,7 @@ class Product {
     public function getProducts() {
         return $this->apiClient->sendRequest('GET', 'getAllProductos');
     }
+    public function addProduct($data) {
+        return $this->apiClient->sendRequest('POST', 'insertProducto', $data);
+    }
 }
-?>

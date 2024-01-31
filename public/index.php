@@ -9,7 +9,9 @@ $router = new Router;
 
 $router->define([
     '' => 'PanelController@showDashboard',
+    'api/products' => 'PanelController@getProductsJson',
     'create' => 'PanelController@showForm',
+    'api/addProduct' => 'PanelController@addProduct',
     // other routes...
 ]);
 
