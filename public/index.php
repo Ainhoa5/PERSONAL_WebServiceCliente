@@ -9,6 +9,7 @@ $router = new Router;
 
 $router->define([
     '' => 'PanelController@showDashboard',
+    'create' => 'PanelController@showForm',
     // other routes...
 ]);
 

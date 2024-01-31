@@ -17,11 +17,13 @@ define('JS_PATH', 'scripts/');
 
 // Core classes
 require_once ROOT_DIR . '/Router.php';       // Include the Router class
-
+require_once CONFIG_DIR . 'database.php';    // Include the Database class
+require_once CONFIG_DIR . 'functions.php'; // last
 // Models
-require_once MODELS_DIR . 'Panel.php'; 
+require_once MODELS_DIR . 'Product.php'; 
 
 // Controllers 
 require CONTROLLERS_DIR . 'PanelController.php';
+require_once CONTROLLERS_DIR . 'ApiClient.php';   
 
 

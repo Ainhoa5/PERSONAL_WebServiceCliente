@@ -1,0 +1,10 @@
+{
+    "name": "2daw/personal_webservice-client",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Config\\": "config/"
+        }
+    }
+}
