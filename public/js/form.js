@@ -1,4 +1,4 @@
-document.getElementById('product-form').addEventListener('submit', async function(event) {
+document.getElementById('product-form').addEventListener('submit', async function (event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
@@ -14,8 +14,10 @@ document.getElementById('product-form').addEventListener('submit', async functio
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
+        } else {
+            window.location.href = '/';
         }
-        
+
         const result = await response.json();
         console.log('Producto añadido:', result);
         // Aquí puedes agregar lógica adicional para actualizar la vista o mostrar un mensaje de éxito.
