@@ -31,7 +31,6 @@ class PanelController {
     }
     public function addProduct() {
         $data = json_decode(file_get_contents('php://input'), true);
-        Functions::debug($data);
         // Aquí, procesa $data y utiliza tu modelo o ApiClient para añadir el producto
         $result = $this->productModel->addProduct($data);
         header('Content-Type: application/json');

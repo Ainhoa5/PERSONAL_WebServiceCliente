@@ -2,7 +2,7 @@ document.getElementById('product-form').addEventListener('submit', async functio
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
-
+    console.log(data);
     try {
         const response = await fetch('/api/addProduct', {
             method: 'POST',
