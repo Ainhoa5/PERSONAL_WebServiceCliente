@@ -37,4 +37,7 @@ class PanelController {
         echo json_encode($result);
         exit;
     }
+    public function deleteProduct($id) {
+        //$result = $this->productModel->deleteProduct();
+    }
 }

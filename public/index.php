@@ -12,6 +12,7 @@ $router->define([
     'api/products' => 'PanelController@getProductsJson',
     'create' => 'PanelController@showForm',
     'api/addProduct' => 'PanelController@addProduct',
+    'api/delete' => 'PanelController@deleteProduct',
     // other routes...
 ]);
 

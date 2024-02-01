@@ -18,4 +18,7 @@ class Product {
     public function addProduct($data) {
         return $this->apiClient->sendRequest('POST', 'insertProducto', $data);
     }
+    public function deleteProduct($data) {
+        return $this->apiClient->sendRequest('POST', 'deleteProducto', $data);
+    }
 }
