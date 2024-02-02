@@ -37,7 +37,11 @@ class PanelController {
         echo json_encode($result);
         exit;
     }
-    public function deleteProduct($id) {
-        //$result = $this->productModel->deleteProduct();
+    public function deleteProduct() {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $result = $this->productModel->deleteProduct($data);
+        header('Content-Type: application/json');
+        echo json_encode($result);
+        exit;
     }
 }
