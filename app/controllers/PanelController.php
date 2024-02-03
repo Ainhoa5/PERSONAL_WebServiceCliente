@@ -30,6 +30,7 @@ class PanelController {
         require VIEWS_DIR . 'form.php';
     }
     public function addProduct() {
+        error_log("Se ha parado");
         $data = json_decode(file_get_contents('php://input'), true);
         // Aquí, procesa $data y utiliza tu modelo o ApiClient para añadir el producto
         $result = $this->productModel->addProduct($data);
@@ -37,11 +38,31 @@ class PanelController {
         echo json_encode($result);
         exit;
     }
+    
     public function deleteProduct() {
         $data = json_decode(file_get_contents('php://input'), true);
         $result = $this->productModel->deleteProduct($data);
         header('Content-Type: application/json');
         echo json_encode($result);
         exit;
+    }
+    public function updateProduct() {
+        error_log("DATA:");
+        $data = json_decode(file_get_contents('php://input'), true);
+        $result = $this->productModel->updateProduct($data);
+        header('Content-Type: application/json');
+        echo json_encode($result);
+        exit;
+    }
+    
+    public function getProductoById() {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $result = $this->productModel->getProductById($data);
+        header('Content-Type: application/json');
+        echo json_encode($result);
+        exit;
+    }
+    public function fillUpdateForm() {
+        require VIEWS_DIR . 'updateForm.php';
     }
 }

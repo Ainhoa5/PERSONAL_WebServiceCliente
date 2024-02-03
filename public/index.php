@@ -13,7 +13,9 @@ $router->define([
     'create' => 'PanelController@showForm',
     'api/addProduct' => 'PanelController@addProduct',
     'api/delete' => 'PanelController@deleteProduct',
-    'api/update/(:num)' => 'PanelController@deleteProduct',
+    'api/getProductoById' => 'PanelController@getProductoById',
+    'api/update' => 'PanelController@updateProduct',
+    'updateForm' => 'PanelController@fillUpdateForm',
     // other routes...
 ]);
 

@@ -41,14 +41,15 @@ function updateProductsView(products) {
         editButton.className = 'edit-btn'; // Class for styling and identification
         deleteButton.className = 'delete-btn'; // Class for styling and identification
         deleteButton.setAttribute('data-product-id', product.pro_id);
+        editButton.setAttribute('data-product-id', product.pro_id);
         
         deleteButton.addEventListener('click', function() {
             const productId = this.getAttribute('data-product-id');
             deleteProduct(productId);
         });
         editButton.addEventListener('click', function() {
-            const productId = hiddenInput.value; // Usar el valor del input oculto que contiene el ID del producto
-            window.location.href = `/api/update/${productId}`; // Redirigir al formulario de edición
+            const productId = this.getAttribute('data-product-id');
+            fetchProductById(productId);
         });
         
 
@@ -66,7 +67,7 @@ function updateProductsView(products) {
         
     });
 }
-
+// fetch endpoint to delete a product
 async function deleteProduct(productId) {
     try {
         const response = await fetch('/api/delete', {
@@ -90,6 +91,33 @@ async function deleteProduct(productId) {
         console.error('Error al borrar el producto:', error);
     }
 }
+
+// fetch endpoint to get the product data by its ID
+async function fetchProductById(productId) {
+    try {
+        const response = await fetch(`/api/getProductoById`, {
+            method: 'POST', // Verifica si este debe ser POST, algunos APIs usan GET para obtener datos
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ pro_id: productId }) // Asegúrate de que la clave coincida con lo que espera tu API
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const product = await response.json();
+        localStorage.setItem('productData', JSON.stringify(product));
+        window.location.href = '/updateForm';
+
+        // Aquí puedes llamar a la función que rellena el formulario con los datos del producto
+        
+    } catch (error) {
+        console.error('Error al obtener el producto:', error);
+    }
+}
+
 
 
 document.addEventListener('DOMContentLoaded', fetchProducts); // Cargar productos cuando la página esté lista
