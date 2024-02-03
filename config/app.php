@@ -21,9 +21,11 @@ require_once CONFIG_DIR . 'database.php';    // Include the Database class
 require_once CONFIG_DIR . 'functions.php'; // last
 // Models
 require_once MODELS_DIR . 'Product.php'; 
+require_once MODELS_DIR . 'Categories.php'; 
 
 // Controllers 
 require CONTROLLERS_DIR . 'PanelController.php';
+require CONTROLLERS_DIR . 'CategoriesController.php';
 require_once CONTROLLERS_DIR . 'ApiClient.php';   
 
 

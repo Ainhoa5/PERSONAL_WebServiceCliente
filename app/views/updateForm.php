@@ -22,7 +22,9 @@
         <textarea id="descripcion_producto" name="pro_desc" required></textarea>
 
         <label for="categoria_producto">Categoría ID:</label>
-        <input type="number" id="categoria_producto" name="cat_id" required>
+        <select id="categoria_producto" name="cat_id">
+            <option value="">Seleccione una Categoría</option>
+        </select>
 
         <button type="submit">Actualizar Producto</button>
     </form>

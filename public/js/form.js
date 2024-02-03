@@ -1,3 +1,25 @@
+loadCategories();
+async function loadCategories() {
+    try {
+        const response = await fetch('/api/categories'); // Ajusta esta URL a tu endpoint correcto
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const categories = await response.json();
+        console.log(categories);
+        // Rellenar el select con las categorías obtenidas
+        const select = document.getElementById('cat_id');
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category.cat_id; // Asume que cada categoría tiene una propiedad 'cat_id'
+            option.textContent = category.cat_nom; // Asume que cada categoría tiene una propiedad 'cat_nom' para el nombre
+            select.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error al cargar las categorías:', error);
+    }
+}
+
 document.getElementById('product-form').addEventListener('submit', async function (event) {
     event.preventDefault();
     const formData = new FormData(event.target);

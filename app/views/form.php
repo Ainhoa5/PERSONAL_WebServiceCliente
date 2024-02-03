@@ -11,7 +11,10 @@
     <form id="product-form">
         <input type="text" id="pro_nom" name="pro_nom" placeholder="Nombre del Producto">
         <textarea id="pro_desc" name="pro_desc" placeholder="Descripción del Producto"></textarea>
-        <input type="number" id="cat_id" name="cat_id" placeholder="ID de Categoría">
+        <select id="cat_id" name="cat_id">
+            <option value="">Seleccione una Categoría</option>
+        </select>
+
         <button type="submit">Insertar Producto</button>
     </form>
 
