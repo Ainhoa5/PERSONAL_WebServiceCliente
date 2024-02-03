@@ -8,7 +8,9 @@ require '../config/app.php';
 $router = new Router;
 
 $router->define([
-    '' => 'PanelController@showDashboard',
+    '' => 'HomeController@showMenu',
+    'manage-products' => 'PanelController@showDashboard',
+    'manage-categories' => 'CategoriesController@showDashboard',
     'api/products' => 'PanelController@getProductsJson',
     'create' => 'PanelController@showForm',
     'api/addProduct' => 'PanelController@addProduct',

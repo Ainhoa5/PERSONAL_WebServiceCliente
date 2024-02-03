@@ -26,6 +26,7 @@ require_once MODELS_DIR . 'Categories.php';
 // Controllers 
 require CONTROLLERS_DIR . 'PanelController.php';
 require CONTROLLERS_DIR . 'CategoriesController.php';
+require CONTROLLERS_DIR . 'HomeController.php';
 require_once CONTROLLERS_DIR . 'ApiClient.php';   
 
 

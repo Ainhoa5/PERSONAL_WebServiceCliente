@@ -1,0 +1,51 @@
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+#product-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+#product-form input[type="text"],
+#product-form textarea,
+#product-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Makes sure padding doesn't affect total width */
+}
+
+#product-form textarea {
+    height: 150px;
+    resize: vertical; /* Allows the user to resize the textarea vertically */
+}
+
+#product-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#product-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Adding some responsiveness */
+@media (max-width: 600px) {
+    #product-form {
+        padding: 10px;
+    }
+}

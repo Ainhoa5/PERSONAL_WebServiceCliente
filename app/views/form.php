@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/form.css">
 </head>
 
 <body>
+    <h1>Create a Product</h1>
     <form id="product-form">
         <input type="text" id="pro_nom" name="pro_nom" placeholder="Nombre del Producto">
         <textarea id="pro_desc" name="pro_desc" placeholder="Descripción del Producto"></textarea>

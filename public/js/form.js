@@ -37,7 +37,7 @@ document.getElementById('product-form').addEventListener('submit', async functio
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         } else {
-            window.location.href = '/';
+            window.location.href = '/manage-products';
         }
 
         const result = await response.json();
