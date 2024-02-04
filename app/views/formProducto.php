@@ -1,3 +1,4 @@
+<!-- En /app/views/formProducto.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +22,7 @@
     </form>
 
     <!-- Incluir el script JavaScript -->
-    <script src="js/form.js"></script>
+    <script src="js/formProducto.js"></script>
 
 </body>
 

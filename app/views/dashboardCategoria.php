@@ -1,3 +1,4 @@
+<!-- En /app/views/dashboardCategoria.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,23 +11,15 @@
 </head>
 
 <body>
-    <!-- dashboard.php -->
     <a href="/" class="home-icon">
         <i class="fas fa-home"></i>
     </a>
-
-    <a href="/create">Insertar un producto</a>
-    <!-- dashboard.php -->
-
-    <!-- Resto del contenido de tu dashboard -->
-    <div id="productos-container">
-        <!-- Los productos se cargarán aquí mediante JavaScript -->
+    <a href="/createCategoria">Insertar una Categoría</a>
+    <div id="categorias-container">
+        <!-- Las categorías se cargarán aquí mediante JavaScript -->
     </div>
-
-    <!-- Incluir el script JavaScript -->
-    <script src="js/productsDashboard.js"></script>
-
-
+    <script src="js/dashboardCategoria.js"></script>
 </body>
+
 
 </html>

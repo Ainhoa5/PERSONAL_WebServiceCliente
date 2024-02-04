@@ -1,3 +1,4 @@
+<!-- En /app/views/updateProductoForm.php -->
 <?php
 ?>
 <!DOCTYPE html>
@@ -30,23 +31,29 @@
         <button type="submit">Actualizar Producto</button>
     </form>
     <script>
+        /**
+         * Escucha el evento DOMContentLoaded para asegurarse de que el DOM esté completamente cargado
+         * antes de intentar acceder a los elementos del formulario.
+         */
         document.addEventListener('DOMContentLoaded', function () {
+            // Parsea los datos del producto almacenados en localStorage.
             const productArray = JSON.parse(localStorage.getItem('productData'));
             const product = productArray[0];
-            if (product) {
 
-                // Rellenando el formulario con los datos del producto
+            if (product) {
+                // Rellena los campos del formulario con los datos del producto.
                 document.getElementById('id_producto').value = product.pro_id;
                 document.getElementById('nombre_producto').value = product.pro_nom;
                 document.getElementById('descripcion_producto').value = product.pro_desc;
                 document.getElementById('categoria_producto').value = product.cat_id;
 
-                // Opcional: Limpiar localStorage
+                // Opcional: Limpia localStorage para evitar el uso de datos desactualizados.
                 localStorage.removeItem('productData');
             }
         });
     </script>
-    <script src="js/updateForm.js"></script>
+
+    <script src="js/updateProductoForm.js"></script>
 </body>
 
 </html>

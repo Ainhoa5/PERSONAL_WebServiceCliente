@@ -1,3 +1,10 @@
+/* En public/js/dashboardProducto.js */
+
+/**
+ * Realiza una solicitud a la API para obtener todos los productos.
+ * @async
+ * @function fetchProducts
+ */
 async function fetchProducts() {
     try {
         const response = await fetch('/api/products');
@@ -11,6 +18,10 @@ async function fetchProducts() {
     }
 }
 
+/**
+ * Actualiza el DOM para mostrar los productos obtenidos de la API.
+ * @param {Array<Object>} products - Lista de productos a mostrar.
+ */
 function updateProductsView(products) {
     const container = document.getElementById('productos-container');
     container.innerHTML = ''; // Limpiar el contenido existente
@@ -42,16 +53,16 @@ function updateProductsView(products) {
         deleteButton.className = 'delete-btn'; // Class for styling and identification
         deleteButton.setAttribute('data-product-id', product.pro_id);
         editButton.setAttribute('data-product-id', product.pro_id);
-        
-        deleteButton.addEventListener('click', function() {
+
+        deleteButton.addEventListener('click', function () {
             const productId = this.getAttribute('data-product-id');
             deleteProduct(productId);
         });
-        editButton.addEventListener('click', function() {
+        editButton.addEventListener('click', function () {
             const productId = this.getAttribute('data-product-id');
             fetchProductById(productId);
         });
-        
+
 
         // Appending elements to the productDiv
         productDiv.appendChild(productName);
@@ -64,10 +75,16 @@ function updateProductsView(products) {
         // Finally, appending the productDiv to the container
         container.appendChild(productDiv);
 
-        
+
     });
 }
-// fetch endpoint to delete a product
+
+/**
+ * Elimina un producto específico haciendo una solicitud a la API.
+ * @async
+ * @function deleteProduct
+ * @param {string} productId - El ID del producto a eliminar.
+ */
 async function deleteProduct(productId) {
     try {
         const response = await fetch('/api/delete', {
@@ -92,7 +109,14 @@ async function deleteProduct(productId) {
     }
 }
 
-// fetch endpoint to get the product data by its ID
+/**
+ * Obtiene los detalles de un producto específico por su ID desde la API.
+ * Para almacenarlo en el localStorage y ser posteriormente utilizado para recoger los
+ * datos de un producto especifico y mostrarlo en el formulario de actualización
+ * @async
+ * @function fetchProductById
+ * @param {string} productId - El ID del producto a obtener.
+ */
 async function fetchProductById(productId) {
     try {
         const response = await fetch(`/api/getProductoById`, {
@@ -108,16 +132,15 @@ async function fetchProductById(productId) {
         }
 
         const product = await response.json();
-        localStorage.setItem('productData', JSON.stringify(product));
-        window.location.href = '/updateForm';
+        localStorage.setItem('productData', JSON.stringify(product)); // almacenar localmente
+        window.location.href = '/updateFormProducto';
 
         // Aquí puedes llamar a la función que rellena el formulario con los datos del producto
-        
+
     } catch (error) {
         console.error('Error al obtener el producto:', error);
     }
 }
 
-
-
+// Añade un oyente para cargar los productos cuando la página esté completamente cargada.
 document.addEventListener('DOMContentLoaded', fetchProducts); // Cargar productos cuando la página esté lista

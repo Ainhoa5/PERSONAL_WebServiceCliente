@@ -1,3 +1,4 @@
+<!-- En /app/views/menu.php -->
 <!DOCTYPE html>
 <html lang="en">
 

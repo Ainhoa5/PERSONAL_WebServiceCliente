@@ -1,3 +1,4 @@
+<!-- En /app/views/updateCategoriaForm.php -->
 <?php
 ?>
 <!DOCTYPE html>
@@ -21,20 +22,27 @@
         <button type="submit">Actualizar Producto</button>
     </form>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const categoriatArray = JSON.parse(localStorage.getItem('categoryData'));
-            const categoria = categoriatArray[0];
-            if (categoria) {
-                // Rellenando el formulario con los datos del producto
-                document.getElementById('cat_id').value = categoria.cat_id;
-                document.getElementById('cat_nom').value = categoria.cat_nom;
-                document.getElementById('cat_obs').value = categoria.cat_obs;
+    /**
+     * Escucha el evento DOMContentLoaded para asegurarse de que el DOM esté completamente cargado
+     * antes de intentar acceder a los elementos del formulario de categoría.
+     */
+    document.addEventListener('DOMContentLoaded', function () {
+        // Parsea los datos de la categoría almacenados en localStorage.
+        const categoriaArray = JSON.parse(localStorage.getItem('categoryData'));
+        const categoria = categoriaArray[0];
 
-                // Opcional: Limpiar localStorage
-                localStorage.removeItem('categoryData');
-            }
-        });
-    </script>
+        if (categoria) {
+            // Rellena los campos del formulario con los datos de la categoría.
+            document.getElementById('cat_id').value = categoria.cat_id;
+            document.getElementById('cat_nom').value = categoria.cat_nom;
+            document.getElementById('cat_obs').value = categoria.cat_obs;
+
+            // Opcional: Limpia localStorage para evitar el uso de datos desactualizados.
+            localStorage.removeItem('categoryData');
+        }
+    });
+</script>
+
     <script src="js/updateCategoriaForm.js"></script>
 </body>
 

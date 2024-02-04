@@ -1,3 +1,4 @@
+<!-- En /app/views/formCategoria.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,7 @@
     </form>
 
     <!-- Incluir el script JavaScript -->
-    <script src="js/categoriaForm.js"></script>
+    <script src="js/formCategoria.js"></script>
 </body>
 
 

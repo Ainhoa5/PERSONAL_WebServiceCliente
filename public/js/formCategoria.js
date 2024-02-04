@@ -1,22 +1,20 @@
-/* En public/js/updateCategoriaForm.js */
+/* En public/js/formCategoria.js */
 
 /**
- * Maneja el evento de envío del formulario de edición de categoría.
- * Intercepta el envío predeterminado para realizar una solicitud fetch a la API,
- * permitiendo la actualización de una categoría específica. En caso de éxito,
- * redirige al usuario a la página de gestión de categorías. Muestra errores en la consola
- * si la solicitud falla.
+ * Agrega un evento de escucha al formulario de categoría para interceptar el envío.
+ * Previene el comportamiento de envío predeterminado y envía los datos del formulario
+ * a la API para crear una nueva categoría. Redirige a la página de gestión de categorías
+ * en caso de éxito, o muestra un error en la consola si falla la solicitud.
  */
-document.getElementById('edit-categoria-form').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Previene el envío tradicional del formulario.
-
+document.getElementById('category-form').addEventListener('submit', async function (event) {
+    // Previene el envío tradicional del formulario para manejarlo con Fetch API.
+    event.preventDefault();
     // Recopila los datos del formulario.
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
-
+    // Envía los datos del formulario a la API para crear una nueva categoría.
     try {
-        // Envía la solicitud a la API para actualizar la categoría.
-        const response = await fetch('/api/updateCategoria', {
+        const response = await fetch('/api/addCategoria', {
             method: 'POST', // Método HTTP utilizado para la solicitud.
             headers: {
                 'Content-Type': 'application/json', // Indica que el cuerpo de la solicitud está en formato JSON.
@@ -34,10 +32,9 @@ document.getElementById('edit-categoria-form').addEventListener('submit', async 
 
         // Opcional: Manejo de la respuesta para lógica adicional.
         const result = await response.json();
-        console.log('Categoría actualizada:', result);
-        // Aquí puedes agregar lógica adicional, como actualizar la vista o mostrar un mensaje de éxito.
+        console.log('Categoría añadida:', result);
     } catch (error) {
         // Captura y maneja errores, como problemas de red o respuestas fallidas de la API.
-        console.error('Error al actualizar la categoría:', error);
+        console.error('Error al añadir la categoria:', error);
     }
 });
