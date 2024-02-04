@@ -1,7 +1,7 @@
 loadCategories();
 async function loadCategories() {
     try {
-        const response = await fetch('/api/categories'); // Ajusta esta URL a tu endpoint correcto
+        const response = await fetch('/api/categorias'); // Ajusta esta URL a tu endpoint correcto
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

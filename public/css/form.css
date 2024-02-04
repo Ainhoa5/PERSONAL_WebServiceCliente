@@ -2,7 +2,7 @@ h1 {
     text-align: center;
     color: #007bff;
 }
-#product-form {
+#product-form, #category-form {
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
@@ -14,7 +14,10 @@ h1 {
 
 #product-form input[type="text"],
 #product-form textarea,
-#product-form select {
+#product-form select,
+#category-form input[type="text"],
+#category-form textarea,
+#category-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -23,12 +26,14 @@ h1 {
     box-sizing: border-box; /* Makes sure padding doesn't affect total width */
 }
 
-#product-form textarea {
+#product-form textarea,
+#category-form textarea {
     height: 150px;
     resize: vertical; /* Allows the user to resize the textarea vertically */
 }
 
-#product-form button[type="submit"] {
+#product-form button[type="submit"],
+#category-form button[type="submit"] {
     width: 100%;
     padding: 10px;
     border: none;
@@ -39,13 +44,14 @@ h1 {
     font-size: 16px;
 }
 
-#product-form button[type="submit"]:hover {
+#product-form button[type="submit"]:hover,
+#category-form button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
 /* Adding some responsiveness */
 @media (max-width: 600px) {
-    #product-form {
+    #product-form, #category-form {
         padding: 10px;
     }
 }

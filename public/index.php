@@ -11,14 +11,20 @@ $router->define([
     '' => 'HomeController@showMenu',
     'manage-products' => 'PanelController@showDashboard',
     'manage-categories' => 'CategoriesController@showDashboard',
-    'api/products' => 'PanelController@getProductsJson',
     'create' => 'PanelController@showForm',
+    'createCategoria' => 'CategoriesController@showForm',
+    'updateForm' => 'PanelController@fillUpdateForm',
+    'api/products' => 'PanelController@getProductsJson',
     'api/addProduct' => 'PanelController@addProduct',
     'api/delete' => 'PanelController@deleteProduct',
     'api/getProductoById' => 'PanelController@getProductoById',
     'api/update' => 'PanelController@updateProduct',
-    'api/categories' => 'CategoriesController@getCategories',
-    'updateForm' => 'PanelController@fillUpdateForm',
+    'api/categorias' => 'CategoriesController@getCategoriasJson',
+    'api/deleteCategoria' => 'CategoriesController@deleteCategoria',
+    'api/getCategoriaById' => 'CategoriesController@getCategoriaById',
+    'api/addCategoria' => 'CategoriesController@addCategoria',
+    'api/updateCategoria' => 'CategoriesController@updateCategoria',
+    'updateFormCategoria' => 'CategoriesController@fillUpdateForm',
     // other routes...
 ]);
 

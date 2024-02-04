@@ -18,22 +18,22 @@ class Categories
     {
         return $this->apiClient->sendRequest('GET', 'getAllCategorias');
     }
-    public function addProduct($data)
+    public function addCategoria($data)
     {
-        return $this->apiClient->sendRequest('POST', 'insertProducto', $data);
+        return $this->apiClient->sendRequest('POST', 'insertCategoria', $data);
     }
-    public function deleteProduct($data)
+    public function deleteCategoria($data)
     {
-        return $this->apiClient->sendRequest('POST', 'deleteProducto', $data);
+        return $this->apiClient->sendRequest('POST', 'deleteCategoria', $data);
     }
-    public function updateProduct($data)
+    public function updateCategoria($data)
     {
-        return $this->apiClient->sendRequest('POST', 'updateProducto', $data);
+        return $this->apiClient->sendRequest('POST', 'updateCategoria', $data);
     }
     
-    public function getProductById($data)
+    public function getCategoriaById($data)
     {
-        return $this->apiClient->sendRequest('POST', 'getProductoById', $data);
+        return $this->apiClient->sendRequest('POST', 'getCategoriaById', $data);
     }
 
 }

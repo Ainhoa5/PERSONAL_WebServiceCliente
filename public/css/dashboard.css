@@ -33,7 +33,7 @@
     border: none;
     border-radius: 5px;
 }
-a[href="/create"] {
+a[href="/create"],  a[href="/createCategoria"]{
     display: inline-block;
     padding: 10px 15px;
     background-color: #007bff; /* Primary button color */
@@ -47,6 +47,6 @@ a[href="/create"] {
     cursor: pointer; /* Changes cursor to pointer to indicate it's clickable */
 }
 
-a[href="/create"]:hover {
+a[href="/create"]:hover,  a[href="/createCategoria"]:hover {
     background-color: #0056b3; /* Darker shade for hover state */
 }

@@ -3,7 +3,7 @@ h1 {
     color: #4a7a2f;
 }
 
-#edit-product-form {
+#edit-product-form, #edit-categoria-form {
     max-width: 500px;
     margin: 20px auto;
     padding: 20px;
@@ -13,7 +13,7 @@ h1 {
     font-family: 'Arial', sans-serif;
 }
 
-#edit-product-form label {
+#edit-product-form label, #edit-categoria-form label {
     display: block;
     margin-bottom: 5px;
     color: #4a7a2f;
@@ -21,7 +21,10 @@ h1 {
 
 #edit-product-form input[type="text"],
 #edit-product-form textarea,
-#edit-product-form select {
+#edit-product-form select,
+#edit-categoria-form input[type="text"],
+#edit-categoria-form textarea,
+#edit-categoria-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -31,12 +34,12 @@ h1 {
     background-color: #fff;
 }
 
-#edit-product-form textarea {
+#edit-product-form textarea, #edit-categoria-form textarea {
     height: 100px; /* Adjust height based on content */
     resize: vertical;
 }
 
-#edit-product-form button[type="submit"] {
+#edit-product-form button[type="submit"], #edit-categoria-form button[type="submit"] {
     width: 100%;
     padding: 10px;
     border: none;
@@ -47,13 +50,13 @@ h1 {
     font-size: 16px;
 }
 
-#edit-product-form button[type="submit"]:hover {
+#edit-product-form button[type="submit"]:hover, #edit-categoria-form button[type="submit"]:hover {
     background-color: #507c2a;
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-    #edit-product-form {
+    #edit-product-form, #edit-categoria-form {
         padding: 10px;
     }
 }

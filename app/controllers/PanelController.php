@@ -18,7 +18,7 @@ class PanelController {
     public function showDashboard() {
         // Aquí no necesitas obtener los productos desde el modelo,
         // ya que se cargarán a través de AJAX.
-        require VIEWS_DIR . 'dashboard.php';
+        require VIEWS_DIR . 'productDashboard.php';
     }
     public function getProductsJson() {
         $latestProducts = $this->productModel->getProducts();
@@ -30,7 +30,6 @@ class PanelController {
         require VIEWS_DIR . 'form.php';
     }
     public function addProduct() {
-        error_log("Se ha parado");
         $data = json_decode(file_get_contents('php://input'), true);
         // Aquí, procesa $data y utiliza tu modelo o ApiClient para añadir el producto
         $result = $this->productModel->addProduct($data);
@@ -47,7 +46,6 @@ class PanelController {
         exit;
     }
     public function updateProduct() {
-        error_log("DATA:");
         $data = json_decode(file_get_contents('php://input'), true);
         $result = $this->productModel->updateProduct($data);
         header('Content-Type: application/json');
