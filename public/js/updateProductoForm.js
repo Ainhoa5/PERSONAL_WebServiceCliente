@@ -2,30 +2,32 @@
 
 /**
  * Carga y muestra las categorías disponibles en el formulario de edición de producto.
- * Realiza una solicitud fetch a la API para obtener todas las categorías y las añade al elemento select.
+ * Realiza una solicitud jQuery.ajax a la API para obtener todas las categorías y las añade al elemento select.
  * @async
  * @function loadCategories
  */
- async function loadCategories() {
-    try {
-        // Realiza la solicitud fetch para obtener las categorías.
-        const response = await fetch('/api/categorias'); // Ajusta esta URL a tu endpoint correcto.
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const categories = await response.json();
+function loadCategories() {
+    $.ajax({
+        url: '/api/categorias', // Ajusta esta URL a tu endpoint correcto.
+        method: 'GET',
+        dataType: 'json', // Indica que esperamos una respuesta en formato JSON.
+        success: function (categories) {
+            // Encuentra el elemento select y rellénalo con las opciones de categoría.
+            const select = $('#categoria_producto'); // Usamos jQuery para seleccionar el elemento.
+            select.empty(); // Limpiamos el select antes de añadir nuevas opciones para evitar duplicados.
 
-        // Encuentra el elemento select y rellénalo con las opciones de categoría.
-        const select = document.getElementById('categoria_producto');
-        categories.forEach(category => {
-            const option = document.createElement('option');
-            option.value = category.cat_id;
-            option.textContent = category.cat_nom;
-            select.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Error al cargar las categorías:', error);
-    }
+            categories.forEach(category => {
+                // Crea y añade cada opción al select usando jQuery.
+                select.append($('<option>', {
+                    value: category.cat_id,
+                    text: category.cat_nom
+                }));
+            });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('Error al cargar las categorías:', textStatus, errorThrown);
+        }
+    });
 }
 
 /**
@@ -35,7 +37,7 @@
  * @async
  * @function
  */
- document.getElementById('edit-product-form').addEventListener('submit', async function (event) {
+document.getElementById('edit-product-form').addEventListener('submit', async function (event) {
     event.preventDefault(); // Previene el envío tradicional del formulario.
 
     // Recopila los datos del formulario.
