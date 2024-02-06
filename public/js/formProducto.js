@@ -5,27 +5,27 @@
  * @async
  * @function loadCategories
  */
-async function loadCategories() {
-    try {
-        // Realiza la solicitud a la API para obtener las categorías.
-        const response = await fetch('/api/categorias'); // Ajusta esta URL a tu endpoint correcto.
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+function loadCategories() {
+    $.ajax({
+        url: '/api/categorias', // Ajusta esta URL a tu endpoint correcto.
+        method: 'GET',
+        dataType: 'json', // Espera una respuesta en formato JSON
+        success: function(categories) {
+            // Rellena el elemento select con las categorías obtenidas
+            const select = $('#cat_id'); // Selecciona el elemento con jQuery
+            $.each(categories, function(index, category) {
+                select.append($('<option>', {
+                    value: category.cat_id, // Asume que cada categoría tiene una propiedad 'cat_id'
+                    text: category.cat_nom // Asume que cada categoría tiene una propiedad 'cat_nom' para el nombre
+                }));
+            });
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Error al cargar las categorías:', textStatus, errorThrown);
         }
-        const categories = await response.json();
-        
-        // Rellena el elemento select con las categorías obtenidas.
-        const select = document.getElementById('cat_id');
-        categories.forEach(category => {
-            const option = document.createElement('option');
-            option.value = category.cat_id; // Asume que cada categoría tiene una propiedad 'cat_id'.
-            option.textContent = category.cat_nom; // Asume que cada categoría tiene una propiedad 'cat_nom' para el nombre.
-            select.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Error al cargar las categorías:', error);
-    }
+    });
 }
+
 
 /**
  * Maneja el evento de envío del formulario de productos, enviando los datos del producto a la API.
